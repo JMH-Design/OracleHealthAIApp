@@ -1,11 +1,9 @@
-// Initialize medication reminders array
 let medicationReminders = [];
 
-// Chatbot class to handle interactions
 class HealthcareChatbot {
   constructor() {
     this.userName = '';
-    this.reminderState = ''; // Track conversation state
+    this.reminderState = ''; 
   }
 
   processInput(userInput) {
@@ -20,12 +18,11 @@ class HealthcareChatbot {
                     \nWhat would you like to do?`;
     }
 
-    // Handle Brukinsa specific input
     if (
       this.reminderState === 'awaiting_medication' &&
       (input.includes('brukinsa') || input === 'brukinsa')
     ) {
-      this.reminderState = ''; // Reset state
+      this.reminderState = '';
       return `Important information about Brukinsa:
                     \n• Take 320 mg daily (4 capsules of 80 mg each)
                     \n• Can be taken as either:
@@ -96,10 +93,8 @@ class HealthcareChatbot {
   }
 }
 
-// Initialize chatbot
 const chatbot = new HealthcareChatbot();
 
-// Helper function to display messages
 function displayMessage(sender, message) {
   const chatOutput = document.getElementById('chat-output');
   const messageDiv = document.createElement('div');
@@ -109,9 +104,7 @@ function displayMessage(sender, message) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 }
 
-// Single DOM event listener to handle all UI setup
 document.addEventListener('DOMContentLoaded', () => {
-  // Add welcome header
   const welcomeHeader = document.createElement('div');
   welcomeHeader.innerHTML = `
   <img src="https://shorturl.at/4mWVB" class="center"></img>     
@@ -127,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   document.body.appendChild(welcomeHeader);
 
-  // Create chat container and elements
   const chatContainer = document.createElement('div');
   chatContainer.id = 'chat-container';
 
@@ -148,13 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
   chatContainer.appendChild(inputForm);
   document.body.appendChild(chatContainer);
 
-  // Display initial welcome message
   displayMessage(
     'bot',
     'Welcome to the Clinical AI Assistant! Who am I speaking with today?'
   );
 
-  // Handle user input
   inputForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const userInput = inputField.value.trim();
@@ -167,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Add styles
 const style = document.createElement('style');
 style.textContent = `
     body {
