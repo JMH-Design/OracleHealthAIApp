@@ -190,17 +190,16 @@ li {
     #chat-container {
         max-width: 500px;
         margin: 20px auto;
-        border: .5px solid #ccc;
         border-radius: 5px;
         padding: 20px;
     }
     
     #chat-output {
-        height: 400px;
+        height: auto;
         overflow-y: auto;
         margin-bottom: 20px;
         padding: 10px;
-        border: .5px solid #ccc;
+
     }
     
     .message {
@@ -222,7 +221,6 @@ li {
     form {
         display: flex;
         gap: 10px;
-        border: .5px solid #f2f2f2;
         appearance: none;
       
     }
